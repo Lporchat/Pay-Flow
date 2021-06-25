@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nlw/shared/themes/app_colors.dart';
 import 'package:nlw/shared/themes/app_images.dart';
 import 'package:nlw/shared/themes/app_text_styles.dart';
 import 'package:nlw/shared/widgets/social_login/social_login_btn.dart';
+
+import 'login_controller.dart';
 
 //width = 411 , height = 683
 
@@ -14,6 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final controller = LoginController();
   @override
   Widget build(BuildContext context) {
     //recuperando o tamanho da tela
@@ -64,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: SocialLoginBtn(
                       onTap: () {
-                        print("deu certo");
+                        controller.google_sign_in(context);
                       },
                     ),
                   )
